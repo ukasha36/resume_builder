@@ -34,7 +34,7 @@ const ShippingLabel = () => {
           {" "}
           <div className="main flex flex-row justify-between items-center p-1">
             <div className="resumeName text-[20px] text-blue-950 p-[10px] w-[400px]  ">
-              {resumeData.firstName + resumeData.lastName}
+              {resumeData.firstName + " " + resumeData.lastName}
               <h2 className="text-[16px] capitalize text-blue-700">
                 {resumeData.title}
               </h2>
