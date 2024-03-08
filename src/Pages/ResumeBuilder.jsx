@@ -318,6 +318,9 @@ const ResumeBuilder = () => {
             <div className="flex flex-col gap-1">
               <label htmlFor="" className="theme-text">
                 Add SKill
+                <span className="font-light text-[12px] text-secondary">
+                  (double click on skill to delete)
+                </span>
               </label>
               <div className="flex gap-3">
                 <input
