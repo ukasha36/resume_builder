@@ -5,8 +5,11 @@ import PurpleCircle from "../Components/PurpleCircle";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import OrangeCircleBg from "../Components/OrangeCircleBg";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const ResumeBuilder = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -102,12 +105,15 @@ const ResumeBuilder = () => {
       return toast.warning("Please provide atleast one skill");
     }
 
+    if (formData.description.length > 50) {
+      return toast.warning("Description must be less than 50 characters");
+    }
+
     formData.socials = socialLinks;
     console.log(formData);
 
     localStorage.setItem("resumeData", JSON.stringify(formData));
-
-    return toast.success("asas");
+    navigate("/resume-themes");
   };
 
   return (
@@ -191,7 +197,7 @@ const ResumeBuilder = () => {
                 <input
                   required
                   value={formData.email}
-                  type="text"
+                  type="email"
                   name="email"
                   onChange={handleInputChange}
                   className="input"
